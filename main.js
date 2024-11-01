@@ -176,7 +176,20 @@ for (let i = 0; i < dropList.length; i++){
 
         dropList[i].insertAdjacentHTML("beforeend", optionTag)
     }
+
+    dropList[i], addEventListener("change", e => {
+        loadFlag(e.target);
+    });
 }
 
-
+function loadFlag(element) {
+    for (let code in country_list) {
+        if (code == element.value) {
+            let imgTag = element.parentElement.querySelector("img");
+            imgTag.src = `https://flagcdn.com/48x36/${country_list[
+                code
+            ].tolowerCase()}.png`;
+        }
+    }
+}
 { process.env.API_KEY }

@@ -1,7 +1,8 @@
 :root {
     --bg-purp: rgb(171, 63, 171);
     --bg-purp-shad: rgb(101, 29, 101);
-
+    --bg-blue: rgb(137, 207, 240);
+    --bg-blue-shad: rgb(68, 142, 159);
 }
 
 * {
@@ -23,7 +24,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg-purp);
+    background: var(--bg-blue);
 }
 
 .wrapper {
@@ -31,7 +32,7 @@ body {
     background: white;
     padding: 2.5rem;
     border-radius: 1.8rem;
-    box-shadow: 0.2rem 0.5rem 1.4rem var(--bg-purp-shad);
+    box-shadow: 0.2rem 0.5rem 1.4rem var(--bg-blue-shad);
 }
 
 .wrapper .heading {
@@ -77,13 +78,13 @@ body {
     height: 3rem;
     width: 100%;
     padding: 0 0.95rem;
-    border: 1px solid blue;
+    border: 1px solid var(--bg-purp);
     font-size: clamp(1.1rem, 2vw, 1.3rem);
     transition: all 0.3s ease-in-out;
 }
 
 .wrapper form input:focus {
-    border: 2px solid blue;
+    border: 2px solid var(--bg-purp-shad);
     padding: 0 0.95rem;
 }
 
@@ -101,7 +102,7 @@ body {
     padding: 0.4rem;
     width: 7rem;
     height: 2.8rem;
-    border: 1px solid red;
+    border: 1px solid var(--bg-purp);
     border-radius: 0.6rem;
 }
 
@@ -154,15 +155,15 @@ body {
     text-align: center;
     font-size: clamp(1.2rem, 2vw, 1.4rem);
     font-weight: 500;
-    background: var(--bg-purp);
+    background: var(--bg-blue);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
 .rates-btn:hover {
-    background: transparent;
-    color: purple;
-    border: 2px solid purple;
+    background: var(--bg-purp);
+    color: white;
+    border: 2px solid var(--bg-purp);
     border-radius: 1rem;
 }
