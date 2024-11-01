@@ -1,3 +1,9 @@
+:root {
+    --bg-purp: rgb(171, 63, 171);
+    --bg-purp-shad: rgb(101, 29, 101);
+
+}
+
 * {
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -6,7 +12,7 @@
 }
 
 ::selection {
-    background: rgb(171, 63, 171);
+    background: var(--bg-purp);
     color: white;
 }
 
@@ -14,6 +20,37 @@ body {
     min-height: 100vh;
     padding: 0 1rem;
     display: flex;
+    align-items: center;
     justify-content: center;
-    background: purple;
+    background: var(--bg-purp);
+}
+
+.wrapper {
+    width: 23rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0.2rem 0.5rem 1.4rem var(--bg-purp-shad);
+}
+
+.wrapper .heading {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.wrapper header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.header-logo {
+    width: 2rem;
+    height: 1.8rem;
+    background: black;
+    padding: 0.2rem 0.25rem 0.2rem 0rem;
+    border-radius: 50%;
 }
