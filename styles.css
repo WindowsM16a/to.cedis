@@ -121,11 +121,11 @@ body {
 }
 
 .select-box select::-webkit-scrollbar-track {
-    background: var(--bg-blue);
+    /* background: var(--bg-blue); */
 }
 
 .select-box select::-webkit-scrollbar-thumb {
-    background: var(--bg-blue-shad);
+    /* background: var(--bg-blue-shad); */
     border-radius: 0.3rem;
     border-right: 0.1rem solid white;
 }
