@@ -8,7 +8,8 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
+    user-select: none;
 }
 
 ::selection {
@@ -26,10 +27,10 @@ body {
 }
 
 .wrapper {
-    width: 23rem;
+    width: 26rem;
     background: white;
     padding: 2.5rem;
-    border-radius: 2rem;
+    border-radius: 1.8rem;
     box-shadow: 0.2rem 0.5rem 1.4rem var(--bg-purp-shad);
 }
 
@@ -38,13 +39,6 @@ body {
     justify-content: center;
     display: flex;
     gap: 1rem;
-    padding-bottom: 1rem;
-}
-
-.wrapper header {
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
 }
 
 .header-logo {
@@ -53,4 +47,93 @@ body {
     background: black;
     padding: 0.2rem 0.25rem 0.2rem 0rem;
     border-radius: 50%;
+}
+
+.wrapper header {
+    font-size: clamp(1.5rem, 1vw, 1.7rem);
+    font-weight: 600;
+    text-align: center;
+}
+
+.wrapper form {
+    margin: 2.7rem 0 1.3rem 0;
+}
+
+.wrapper form input,
+.wrapper form select,
+.wrapper form button {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0.9rem;
+}
+
+.wrapper form p {
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
+    margin-bottom: 0.4rem;
+}
+
+.wrapper form input {
+    height: 3rem;
+    width: 100%;
+    padding: 0 0.95rem;
+    border: 1px solid blue;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.wrapper form input:focus {
+    border: 2px solid blue;
+    padding: 0 0.95rem;
+}
+
+.from-to-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.4rem;
+}
+
+.select-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem;
+    width: 7rem;
+    height: 2.8rem;
+    border: 1px solid red;
+    border-radius: 0.6rem;
+}
+
+.select-box select {
+    width: auto;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-weight: 500;
+    background: none;
+    margin: 0 -0.2rem 0 0.2rem;
+    cursor: pointer;
+}
+
+.select-box img {
+    max-width: 2rem;
+    cursor: default;
+}
+
+.exchange-icon:hover {
+    cursor: pointer;
+}
+
+.rates {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+.rates-btn {
+    width: 50%;
+    height: 2.5rem;
+    text-align: center;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 500;
+    background: var(--bg-purp);
+    color: white;
+    cursor: pointer;
 }
