@@ -160,9 +160,23 @@ let country_list = {
     ZWD: "ZW",
 };
 
-let dropList = document.querySelectorAll("form select")
-let fromCurrency = document.querySelector(".from select")
-let toCurrency = document.querySelector(".to select")
-let icon = document.querySelector("exchange-btn")
+let dropList = document.querySelectorAll("form select");
+let fromCurrency = document.querySelector(".from select");
+let toCurrency = document.querySelector(".to select");
+let icon = document.querySelector(".exchange-btn");
+let exchangeTxt = document.querySelector(".ratess");
+let getBtn = document.querySelector("button");
+
+
+for (let i = 0; i < dropList.length; i++){
+    for (let currency_code in country_list) {
+        let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "GH" ? "selected" : " ";
+        
+        let optionTag = `<option value="${currency_code}" ${selected}> ${currency_code}</option>`
+
+        dropList[i].insertAdjacentHTML("beforeend", optionTag)
+    }
+}
+
 
 { process.env.API_KEY }
