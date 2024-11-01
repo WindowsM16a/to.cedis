@@ -1,3 +1,5 @@
+import config from './config.js';
+
 let country_list = {
     AED: "AE",
     AFN: "AF",
@@ -163,21 +165,21 @@ let country_list = {
 let dropList = document.querySelectorAll("form select");
 let fromCurrency = document.querySelector(".from select");
 let toCurrency = document.querySelector(".to select");
-let icon = document.querySelector(".exchange-btn");
-let exchangeTxt = document.querySelector(".ratess");
+let icon = document.querySelector(".exchange-icon");
+let exchangeTxt = document.querySelector(".rates");
 let getBtn = document.querySelector("button");
 
 
 for (let i = 0; i < dropList.length; i++){
     for (let currency_code in country_list) {
-        let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "GH" ? "selected" : " ";
+        let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "GHS" ? "selected" : " ";
         
         let optionTag = `<option value="${currency_code}" ${selected}> ${currency_code}</option>`
 
         dropList[i].insertAdjacentHTML("beforeend", optionTag)
     }
 
-    dropList[i], addEventListener("change", e => {
+    dropList[i].addEventListener("change", e => {
         loadFlag(e.target);
     });
 }
@@ -186,10 +188,47 @@ function loadFlag(element) {
     for (let code in country_list) {
         if (code == element.value) {
             let imgTag = element.parentElement.querySelector("img");
-            imgTag.src = `https://flagcdn.com/48x36/${country_list[
-                code
-            ].tolowerCase()}.png`;
+            imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
         }
     }
 }
-{ process.env.API_KEY }
+
+getBtn.addEventListener("click", e => {
+    e.preventDefault();
+    getExchangeValue();
+});
+
+
+function getExchangeValue() {
+    const amount = document.querySelector("form input");
+    let amountValue = amount.value;
+    if (amountValue == "" || amountValue == "0") {
+        amount.value = "1";
+        amountValue = 1;
+    }
+
+    exchangeTxt.innerText = "Getting exchange rate...";
+    let url = `https://v6.exchangerate-api.com/v6/${config.API_KEY}/latest/${fromCurrency.value}`;
+    fetch(url).then(response => response.json())
+        .then(result => {
+            let exchangeRate = result.conversion_rates[toCurrency.value];
+            let total = (amountValue * exchangeRate).toFixed(2);
+            exchangeTxt.innerText = `${amountValue} ${fromCurrency.value} = ${total} ${toCurrency.value}`;
+        }).catch(() => {
+            exchangeTxt.innerText = "something went wrong";
+        });
+}
+
+window.addEventListener("load", () => {
+    getExchangeValue();
+});
+
+icon.addEventListener("click", () => {
+    let tempCode = fromCurrency.value;
+    fromCurrency.value = toCurrency.value;
+    toCurrency.value = tempCode;
+    loadFlag(fromCurrency);
+    loadFlag(toCurrency);
+    getExchangeValue();
+});
+
