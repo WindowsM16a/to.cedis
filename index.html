@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To.Cedis | Currency Converter</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/dx72ndl5e/image/upload/v1730431141/ulyehpdbamtysp1dfhsc.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>To.Cedis: Currency Converter</header>
+      <form action="#">
+        <div class="amount">
+          <p>Enter Amount</p>
+          <input type="text" value="1" />
+        </div>
+        <div class="from-to-list">
+          <div class="from">
+            <p>From</p>
+            <div class="select-box">
+              <img src="https://flagcdn.com/48x36/us.png" alt="flag" />
+              <select name="" id="">
+                <option value="USD">USD</option>
+                <option value="GHC">GHC</option>
+              </select>
+            </div>
+          </div>
+          <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+          <div class="to">
+            <p>To</p>
+            <div class="select-box">
+              <img src="https://flagcdn.com/48x36/gh.png" alt="flag" />
+              <select name="" id="">
+                <option value="GHC">GHC</option>
+                <option value="USD">USD</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="rates">Getting exchange rate...</div>
+        <button>Get Rates</button>
+      </form>
+    </div>
+  </body>
+</html>
