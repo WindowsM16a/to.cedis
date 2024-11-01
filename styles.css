@@ -65,7 +65,7 @@ body {
     width: 100%;
     border: none;
     outline: none;
-    border-radius: 0.9rem;
+    border-radius: 1.1rem;
 }
 
 .wrapper form p {
@@ -79,6 +79,7 @@ body {
     padding: 0 0.95rem;
     border: 1px solid blue;
     font-size: clamp(1.1rem, 2vw, 1.3rem);
+    transition: all 0.3s ease-in-out;
 }
 
 .wrapper form input:focus {
@@ -111,6 +112,7 @@ body {
     background: none;
     margin: 0 -0.2rem 0 0.2rem;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .select-box img {
@@ -118,17 +120,22 @@ body {
     cursor: default;
 }
 
+.exchange-icon {
+    margin-top: 2.2rem;
+    cursor: pointer;
+}
+
 .exchange-icon:hover {
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .rates {
     margin-top: 1.4rem;
-    margin-bottom: 1.4rem;
+    margin: 2.3rem 0 1.1rem;
 }
 
 .rates-btn {
-    width: 50%;
     height: 2.5rem;
     text-align: center;
     font-size: clamp(1.2rem, 2vw, 1.4rem);
@@ -136,4 +143,12 @@ body {
     background: var(--bg-purp);
     color: white;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.rates-btn:hover {
+    background: transparent;
+    color: purple;
+    border: 2px solid purple;
+    border-radius: 1rem;
 }
